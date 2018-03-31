@@ -13,6 +13,8 @@ type Samson struct {
 	QueryParams map[string]string
 	Headers     map[string]string
 	BaseURL     string
+
+	Projects *ProjectService
 }
 
 type service struct {
@@ -21,7 +23,7 @@ type service struct {
 
 // New returns a Samson client
 func New(token string) *Samson {
-	c := &Samson{
+	s := &Samson{
 		token:       token,
 		QueryParams: map[string]string{},
 		Headers: map[string]string{
@@ -32,7 +34,9 @@ func New(token string) *Samson {
 		BaseURL: "https://localhost:9080",
 	}
 
-	return c
+	s.Projects = &ProjectService{s: s}
+
+	return s
 }
 
 // NewCall creates a new api call object
@@ -78,4 +82,8 @@ func (s *Samson) NewCall(method, path string, queryParams, headers map[string]st
 	}
 
 	return call, nil
+}
+
+func String(s string) *string {
+	return &s
 }
