@@ -15,6 +15,7 @@ type Samson struct {
 	BaseURL     string
 
 	Projects *ProjectService
+	Stages   *StageService
 }
 
 type service struct {
@@ -35,6 +36,7 @@ func New(token string) *Samson {
 	}
 
 	s.Projects = &ProjectService{s: s}
+	s.Stages = &StageService{s: s}
 
 	return s
 }

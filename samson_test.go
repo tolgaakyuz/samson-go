@@ -86,6 +86,7 @@ func TestSamsonNew(t *testing.T) {
 	client = New(token)
 	assert.IsType(Samson{}, *client)
 	assert.IsType(ProjectService{}, *client.Projects)
+	assert.IsType(StageService{}, *client.Stages)
 	assert.Equal("https://localhost:9080", client.BaseURL)
 	assert.Equal(token, client.token)
 	assert.Equal(fmt.Sprintf("Bearer %s", token), client.Headers["Authorization"])
