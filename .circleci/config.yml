@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.10
+    working_directory: /go/src/github.com/tolgaakyuz/samson-go
+    steps:
+      - checkout
+      - run:
+          name: Install DEP
+          command: curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+      - run:
+          name: Install deps
+          command: make dep
+      - run:
+          name: Run tests
+          command: make test
+      - run:
+          name: Upload coverage
+          command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
