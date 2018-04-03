@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.10
+    working_directory: /go/src/github.com/tolgaakyuz/samson-go
+    steps:
+      - checkout
+      - run: make test
+      - run: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
