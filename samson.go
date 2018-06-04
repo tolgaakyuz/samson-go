@@ -37,6 +37,7 @@ func New(token string) *Samson {
 
 	s.Projects = &ProjectService{s: s}
 	s.Stages = &StageService{s: s}
+	s.DeployGroups = &DeployGroupService{s: s}
 
 	return s
 }

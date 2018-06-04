@@ -1,0 +1,26 @@
+{
+  "deploy_groups": [
+    {
+      "id": 1,
+      "name": "Group1",
+      "environment_id": 1,
+      "deleted_at": null,
+      "created_at": "2018-04-03T14:47:27.990Z",
+      "updated_at": "2018-04-03T14:47:27.990Z",
+      "env_value": "group1",
+      "permalink": "group1",
+      "vault_server_id": null
+    },
+    {
+      "id": 2,
+      "name": "GroupK",
+      "environment_id": 3,
+      "deleted_at": null,
+      "created_at": "2018-04-03T14:47:31.110Z",
+      "updated_at": "2018-04-03T14:47:31.110Z",
+      "env_value": "groupk",
+      "permalink": "groupk",
+      "vault_server_id": null
+    }
+  ]
+}

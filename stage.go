@@ -120,7 +120,7 @@ func (service *StageService) Upsert(stage *Stage) (*Stage, *Call, error) {
 	return stage, call, nil
 }
 
-// Delete deletes a sinlge stage resource
+// Delete deletes a single stage resource
 func (service *StageService) Delete(id int) (*Call, error) {
 	path := fmt.Sprintf("/stages/%d.json", id)
 	method := "DELETE"
