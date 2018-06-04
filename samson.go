@@ -32,7 +32,7 @@ func New(token string) *Samson {
 			"Content-Type":  "application/json",
 			"User-Agent":    fmt.Sprintf("sdk samson-go/%s", Version),
 		},
-		BaseURL: "https://localhost:9080",
+		BaseURL: "http://localhost:9080",
 	}
 
 	s.Projects = &ProjectService{s: s}

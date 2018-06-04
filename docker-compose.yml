@@ -1,0 +1,22 @@
+version: "2"
+services:
+  samson:
+    image: cakejelly/samson:latest
+    ports:
+      - "9080:9080"
+    environment:
+      DATABASE_URL: "sqlite3://db/development.sqlite"
+      RAILS_LOG_TO_STDOUT: 1
+    # to use .env.virtualbox with 192.168.42.45 host prefix ./bin/decode_dot_env .env.virtualbox && source <(sed -E -n 's/[^#]+/export &/ p' .env.virtualbox) &&
+    command: ["bash", "-c", "rake db:setup && bundle exec puma -C config/puma.rb"]
+
+  samson-go-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.build
+    image: tolgaakyuz/samson-go-tests
+    volumes:
+      - /go/src/github.com/tolgaakyuz/samson-go/vendor
+      - .:/go/src/github.com/tolgaakyuz/samson-go
+    depends_on:
+      - samson
