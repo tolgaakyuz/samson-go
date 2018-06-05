@@ -12,26 +12,34 @@ type ProjectService service
 
 // Project model
 type Project struct {
-	ID                                     *int       `json:"id,omitempty"`
-	Name                                   *string    `json:"name,omitempty"`
-	Description                            *string    `json:"description,omitempty"`
-	RepositoryURL                          *string    `json:"repository_url,omitempty"`
-	ReleaseBranch                          *string    `json:"release_branch,omitempty"`
-	Permalink                              *string    `json:"permalink,omitempty"`
-	IncludeNewDeployGroups                 *bool      `json:"include_new_deploy_groups,omitempty"`
-	DockerReleaseBranch                    *string    `json:"docker_release_branch,omitempty"`
-	DockerImageBuildingDisabled            *bool      `json:"docker_image_building_disabled,omitempty"`
-	Dockerfiles                            *string    `json:"dockerfiles,omitempty"`
-	BuildWithGCB                           *bool      `json:"build_with_gcb,omitempty"`
-	ShowGCBVulnerabilities                 *bool      `json:"show_gcr_vulnerabilities,omitempty"`
-	KubernetesAllowWritingToRootFilesystem *bool      `json:"kubernetes_allow_writing_to_root_filesystem,omitempty"`
-	ReleaseSource                          *string    `json:"release_source,omitempty"`
-	BuildCommandID                         *int       `json:"build_command_id,omitempty"`
-	Dashboard                              *string    `json:"dashboard,omitempty"`
-	RepositoryPath                         *string    `json:"repository_path,omitempty"`
-	Owner                                  *string    `json:"owner,omitempty"`
-	CreatedAt                              *time.Time `json:"created_at,omitempty"`
-	UpdatedAt                              *time.Time `json:"updated_at,omitempty"`
+	ID                                     *int                   `json:"id,omitempty"`
+	Name                                   *string                `json:"name,omitempty"`
+	Description                            *string                `json:"description,omitempty"`
+	RepositoryURL                          *string                `json:"repository_url,omitempty"`
+	ReleaseBranch                          *string                `json:"release_branch,omitempty"`
+	Permalink                              *string                `json:"permalink,omitempty"`
+	EnvironmentVariableAttributes          []*EnvironmentVariable `json:"environment_variables_attributes,omitempty"`
+	IncludeNewDeployGroups                 *bool                  `json:"include_new_deploy_groups,omitempty"`
+	DockerReleaseBranch                    *string                `json:"docker_release_branch,omitempty"`
+	DockerImageBuildingDisabled            *bool                  `json:"docker_image_building_disabled,omitempty"`
+	Dockerfiles                            *string                `json:"dockerfiles,omitempty"`
+	BuildWithGCB                           *bool                  `json:"build_with_gcb,omitempty"`
+	ShowGCBVulnerabilities                 *bool                  `json:"show_gcr_vulnerabilities,omitempty"`
+	KubernetesAllowWritingToRootFilesystem *bool                  `json:"kubernetes_allow_writing_to_root_filesystem,omitempty"`
+	ReleaseSource                          *string                `json:"release_source,omitempty"`
+	BuildCommandID                         *int                   `json:"build_command_id,omitempty"`
+	Dashboard                              *string                `json:"dashboard,omitempty"`
+	RepositoryPath                         *string                `json:"repository_path,omitempty"`
+	Owner                                  *string                `json:"owner,omitempty"`
+	CreatedAt                              *time.Time             `json:"created_at,omitempty"`
+	UpdatedAt                              *time.Time             `json:"updated_at,omitempty"`
+}
+
+// EnvironmentVariable model for projects
+type EnvironmentVariable struct {
+	Name           *string `json:"name,omitempty"`
+	Value          *string `json:"value,omitempty"`
+	ScopeTypeAndID *string `json:"scope_type_and_id,omitempty"`
 }
 
 // List returns all projects

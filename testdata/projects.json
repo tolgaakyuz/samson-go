@@ -24,7 +24,19 @@
       "repository_path": "samson-test-org/example-kubernetes",
       "last_deployed_at": null,
       "last_deployed_by": null,
-      "last_deploy_url": null
+      "last_deploy_url": null,
+      "environment_variables_attributes": [
+        {
+          "name": "CUSTOM_ENV",
+          "value": "custom_value",
+          "scope_type_and_id": ""
+        },
+        {
+          "name": "",
+          "value": "",
+          "scope_type_and_id": ""
+        }
+      ]
     },
     {
       "id": 1,
@@ -50,7 +62,19 @@
       "repository_path": "samson-test-org/example-project",
       "last_deployed_at": null,
       "last_deployed_by": null,
-      "last_deploy_url": null
+      "last_deploy_url": null,
+      "environment_variables_attributes": [
+        {
+          "name": "CUSTOM_ENV",
+          "value": "custom_value",
+          "scope_type_and_id": ""
+        },
+        {
+          "name": "",
+          "value": "",
+          "scope_type_and_id": ""
+        }
+      ]
     }
   ]
 }

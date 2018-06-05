@@ -18,5 +18,17 @@
   "build_with_gcb": false,
   "show_gcr_vulnerabilities": false,
   "kubernetes_allow_writing_to_root_filesystem": false,
-  "repository_path": "samson-test-org/example-kubernetes"
+  "repository_path": "samson-test-org/example-kubernetes",
+  "environment_variables_attributes": [
+    {
+      "name": "CUSTOM_ENV",
+      "value": "custom_value",
+      "scope_type_and_id": ""
+    },
+    {
+      "name": "",
+      "value": "",
+      "scope_type_and_id": ""
+    }
+  ]
 }
