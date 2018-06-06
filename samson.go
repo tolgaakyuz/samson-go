@@ -14,9 +14,10 @@ type Samson struct {
 	Headers     map[string]string
 	BaseURL     string
 
-	Projects *ProjectService
-	Stages   *StageService
-	Commands *CommandService
+	Projects     *ProjectService
+	Stages       *StageService
+	Commands     *CommandService
+	Environments *EnvironmentService
 }
 
 type service struct {
@@ -39,6 +40,7 @@ func New(token string) *Samson {
 	s.Projects = &ProjectService{s: s}
 	s.Stages = &StageService{s: s}
 	s.Commands = &CommandService{s: s}
+	s.Environments = &EnvironmentService{s: s}
 
 	return s
 }
