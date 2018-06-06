@@ -87,7 +87,7 @@ func TestSamsonNew(t *testing.T) {
 	assert.IsType(Samson{}, *client)
 	assert.IsType(ProjectService{}, *client.Projects)
 	assert.IsType(StageService{}, *client.Stages)
-	assert.Equal("https://localhost:9080", client.BaseURL)
+	assert.Equal("http://localhost:9080", client.BaseURL)
 	assert.Equal(token, client.token)
 	assert.Equal(fmt.Sprintf("Bearer %s", token), client.Headers["Authorization"])
 	assert.Equal("application/json", client.Headers["Content-Type"])
@@ -160,4 +160,18 @@ func TestNewCall_error_malformedurl(t *testing.T) {
 
 	_, err := client.NewCall("GET", "some/path", nil, nil, nil)
 	assert.NotNil(err)
+}
+
+func TestString(t *testing.T) {
+	assert := assert.New(t)
+
+	s := "test string"
+	assert.Equal(s, *String(s))
+}
+
+func TestInt(t *testing.T) {
+	assert := assert.New(t)
+
+	i := 1
+	assert.Equal(i, *Int(i))
 }

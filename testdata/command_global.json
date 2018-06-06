@@ -1,0 +1,4 @@
+{
+  "id": 1,
+  "command": "bundle exec rake myapp:deploy"
+}

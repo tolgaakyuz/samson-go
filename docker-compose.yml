@@ -7,6 +7,13 @@ services:
     environment:
       DATABASE_URL: "sqlite3://db/development.sqlite"
       RAILS_LOG_TO_STDOUT: 1
+      PLUGINS: "all"
+      DEFAULT_URL: "http://localhost:9080"
+      SECRET_TOKEN: "e3711c777b49a9ba6f4cd44539f4c677e76f7c08c346875e50b11119c61839d385b2709f1fd8ac2d899b32dc818d1459b265cff91f6dcc635406a473cd903f4a"
+      AUTH_GITHUB: "true"
+      GITHUB_CLIENT_ID: "your_github_client_id"
+      GITHUB_SECRET: "your_github_client_secret"
+      GITHUB_TOKEN: "your_github_token"
     # to use .env.virtualbox with 192.168.42.45 host prefix ./bin/decode_dot_env .env.virtualbox && source <(sed -E -n 's/[^#]+/export &/ p' .env.virtualbox) &&
     command: ["bash", "-c", "rake db:setup && bundle exec puma -C config/puma.rb"]
 

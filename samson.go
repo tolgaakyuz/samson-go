@@ -16,6 +16,7 @@ type Samson struct {
 
 	Projects *ProjectService
 	Stages   *StageService
+	Commands *CommandService
 }
 
 type service struct {
@@ -37,6 +38,7 @@ func New(token string) *Samson {
 
 	s.Projects = &ProjectService{s: s}
 	s.Stages = &StageService{s: s}
+	s.Commands = &CommandService{s: s}
 
 	return s
 }
