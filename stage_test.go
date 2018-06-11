@@ -97,7 +97,7 @@ func TestStageServiceList(t *testing.T) {
 
 	stages, call, err := client.Stages.List()
 	assert.Nil(err)
-	assert.Equal(len(stages), 2)
+	assert.Equal(3, len(stages))
 	assert.IsType(&Call{}, call)
 }
 
@@ -157,7 +157,7 @@ func TestStageServiceGet(t *testing.T) {
 
 	stage, call, err := client.Stages.Get(3)
 	assert.Nil(err)
-	assert.Equal(*stage.ID, 3)
+	assert.Equal(1, *stage.ID)
 	assert.IsType(&Call{}, call)
 }
 
@@ -255,7 +255,7 @@ func TestStageServiceUpdate(t *testing.T) {
 
 	handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		assert.Equal(r.Method, "PUT")
-		assert.Equal(r.URL.Path, "/stages/3.json")
+		assert.Equal(r.URL.Path, "/stages/1.json")
 		assert.Equal("Bearer "+token, r.Header.Get("Authorization"))
 		assert.Equal("application/json", r.Header.Get("Content-Type"))
 
